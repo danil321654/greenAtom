@@ -1,1 +1,0 @@
-web: webpack-dev-server --mode development --open --hot -p $PORT
