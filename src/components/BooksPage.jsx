@@ -27,8 +27,10 @@ const countries = [...new Set(books.map((el) => el.country))].sort();
 
 const BooksPage = () => {
   const [searchBook, setSearchBook] = useState('');
-  const [allBooks, setAllBooks] = useState(abooks);
-  const [favoriteBooks, setFavoriteBooks] = useState(fbooks);
+  const [allBooks, setAllBooks] = useState(
+    abooks || books.map((el, i) => ({ ...el, id: i, rating: 0 })),
+  );
+  const [favoriteBooks, setFavoriteBooks] = useState(fbooks || []);
   const [isFavorite, toggleFavorite] = useState(false);
   const classes = useStyles(isFavorite);
   const [sort, setSort] = useState({ type: null, dir: true });

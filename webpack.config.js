@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+require('dotenv').config();
 
 module.exports = {
   entry: './src/index.jsx',
@@ -23,6 +24,9 @@ module.exports = {
         },
       },
     ],
+  },
+  devServer: {
+    port: 3000 || process.env.PORT,
   },
   plugins: [
     new HtmlWebpackPlugin({
